@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node name="camera_publisher_node" pkg="sambot_rl" type="camera_publisher.py" output="screen"></node>
+
+
+    <arg name="in_update_trigger_topic" default="/trigger_field_update"/>
+    <arg name="out_field_topic" default="/spatial_temporal_field"/>
+    <arg name="out_agent_field_topic" default="/agent_field"/>
+    <arg name="initial_field_state_file" default="$(find sambot_rl)/data/initial_field/u_npy.npy"/>
+    <arg name="dx" default="0.8"/>
+    <arg name="dy" default="0.8"/>
+    <arg name="vx" default="-0.6"/>
+    <arg name="vy" default="0.8"/>
+    <arg name="dt" default="0.1"/>
+    <arg name="k" default="1.0"/>
+    <arg name="num_rows" default="100"/>
+    <arg name="num_cols" default="100"/>
+    <arg name="grid_cell_size" default="0.05"/>
+
+    <node pkg="sambot_rl" name="spatial_temporal_field_publisher_node"
+        type="spatial_temporal_field_publisher_node" output="screen">
+
+        <param name="in_update_trigger_topic" value="$(arg in_update_trigger_topic)"/>
+        <param name="out_field_topic" value="$(arg out_field_topic)"/>
+        <param name="initial_field_state_file" value="$(arg initial_field_state_file)"/>
+        <param name="out_agent_field_topic" value="$(arg out_agent_field_topic)"/>
+        <param name="dx" value="$(arg dx)"/>
+        <param name="dy" value="$(arg dy)"/>
+        <param name="vx" value="$(arg vx)"/>
+        <param name="vy" value="$(arg vy)"/>
+        <param name="dt" value="$(arg dt)"/>
+        <param name="k" value="$(arg k)"/>
+        <param name="num_rows" value="$(arg num_rows)"/>
+        <param name="num_cols" value="$(arg num_cols)"/>
+        <param name="grid_cell_size" value="$(arg grid_cell_size)"/>
+
+    </node>
+</launch>

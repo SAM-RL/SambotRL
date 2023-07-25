@@ -1,0 +1,37 @@
+<launch>
+<arg name="name" default="$(env SAMBOT_ID)"/>
+<arg name="port"              default="/dev/ttyUSB0"/>  
+<arg name="frame_id"          default="$(arg name)/laser_frame"/>
+<arg name="resolution_fixed"  default="true"/>
+<arg name="auto_reconnect"    default="true"/>
+<arg name="reversion"         default="false"/>
+<arg name="angle_min"         default="-180" />
+<arg name="angle_max"         default="180" />
+<arg name="range_min"         default="0.08" />
+<arg name="range_max"         default="16.0" />
+<arg name="ignore_array"      default="" />
+<arg name="samp_rate"         default="9"/>
+<arg name="frequency"         default="10"/>
+
+<node pkg="sambot_driver"
+      name="lidar_publisher_node"
+      output="screen"
+      type="lidar_publisher_node" respawn="false" >
+    <param name="port"              type="string" value="$(arg port)"/>  
+    <param name="frame_id"          type="string" value="$(arg frame_id)"/>
+    <param name="resolution_fixed"  type="bool"   value="$(arg resolution_fixed)"/>
+    <param name="auto_reconnect"    type="bool"   value="$(arg auto_reconnect)"/>
+    <param name="reversion"         type="bool"   value="$(arg reversion)"/>
+    <param name="angle_min"         type="double" value="$(arg angle_min)"/>
+    <param name="angle_max"         type="double" value="$(arg angle_max)"/>
+    <param name="range_min"         type="double" value="$(arg range_min)"/>
+    <param name="range_max"         type="double" value="$(arg range_max)"/>
+    <param name="ignore_array"      type="string" value="$(arg ignore_array)"/>
+    <param name="samp_rate"         type="int"    value="$(arg samp_rate)"/>
+    <param name="frequency"         type="double" value="$(arg frequency)"/>
+  </node>
+    <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser4"
+    args="0.2245 0.0 0.2 0.0 0.0  0.0 /base_footprint /laser_frame 40" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="base_laser_to_laser4"
+    args="0.0 0.0 0.03172 0.0 0.0  0.0 $(arg name)/base_laser $(arg name)/laser_frame 40" />
+</launch>

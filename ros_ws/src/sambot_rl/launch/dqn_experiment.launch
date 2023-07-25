@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="camera_publisher_node" pkg="sambot_rl" type="run_expr_dqn.py" output="screen"></node>
+</launch>

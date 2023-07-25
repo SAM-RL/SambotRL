@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="in_center_goal_topic" default="/center_goal"/>
+    <arg name="distance_from_center" default="0.4"/>  <!-- in meters -->
+    <arg name="num_robots" default="1"/>
+    <arg name="grid_cell_size" default="0.1"/>
+    <arg name="grid_cells_from_center" default="5"/>
+
+    <node pkg="sambot_navigation" name="goals_publisher" type="goals_publisher" output="screen">
+        <param name="in_center_goal_topic" value="$(arg in_center_goal_topic)"/>
+        <param name="grid_cell_size" value="$(arg grid_cell_size)"/>
+        <param name="grid_cells_from_center" value="$(arg grid_cells_from_center)"/>
+        <param name="num_robots" value="$(arg num_robots)"/>
+    </node>
+
+</launch>

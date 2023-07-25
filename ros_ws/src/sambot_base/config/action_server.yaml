@@ -1,0 +1,33 @@
+sambot1: 
+  tolerance_yaw_inplace: 0.25
+  tolerance_yaw_moving: 0.4
+  tolerance_xy: 0.08
+  forward_speed: 0.62
+  rotating_speed: 0.60
+  stop_rate: 4.5
+  trim: 0.035
+
+sambot2:
+  tolerance_yaw_inplace: 0.25
+  tolerance_yaw_moving: 0.4
+  tolerance_xy: 0.08
+  forward_speed: 0.6
+  rotating_speed: 0.46
+  stop_rate: 4.5
+
+sambot3:
+  tolerance_yaw_inplace: 0.25
+  tolerance_yaw_moving: 0.4
+  tolerance_xy: 0.08
+  forward_speed: 0.6
+  rotating_speed: 0.46
+  stop_rate: 4.5
+  trim: -0.015
+
+sambot4:
+  tolerance_yaw_inplace: 0.25
+  tolerance_yaw_moving: 0.4
+  tolerance_xy: 0.08
+  forward_speed: 0.62
+  rotating_speed: 0.62
+  stop_rate: 4.5

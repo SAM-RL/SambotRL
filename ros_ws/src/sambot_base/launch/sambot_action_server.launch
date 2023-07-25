@@ -1,0 +1,11 @@
+<!-- https://github.com/ros-controls/ros_controllers/tree/kinetic-devel/diff_drive_controller/test -->
+<launch>
+
+    <rosparam command="load" file="$(find sambot_base)/config/action_server.yaml"/>
+    
+    <node pkg="sambot_base" type="move_toward_goal_server" name="move_toward_goal_server" ns="sambot1" output="screen"/>
+    <node pkg="sambot_base" type="move_toward_goal_server" name="move_toward_goal_server" ns="sambot2" output="screen"/>
+    <node pkg="sambot_base" type="move_toward_goal_server" name="move_toward_goal_server" ns="sambot3" output="screen"/>
+    <node pkg="sambot_base" type="move_toward_goal_server" name="move_toward_goal_server" ns="sambot4" output="screen"/>
+
+</launch>

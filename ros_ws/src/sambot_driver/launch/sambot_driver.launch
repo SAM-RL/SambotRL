@@ -1,0 +1,8 @@
+<!-- https://github.com/ros-controls/ros_controllers/tree/kinetic-devel/diff_drive_controller/test -->
+<launch>
+<rosparam command="load" file="$(find sambot_control)/config/sambot_control.yaml"/>
+<rosparam command="load" file="$(find sambot_base)/config/base.yaml"/>
+<node name="sambot_base_controller" pkg="sambot_driver" type="sambot_hw_driver.py" ns="sambot" output="screen"></node>
+<node name="rosserial_base_controller" pkg="rosserial_python" type="serial_node.py" respawn="false" output="screen" args="_port:=/dev/ttyACM0 _baud:=115200"/>
+<include file="$(find sambot_driver)/launch/lidar_publisher.launch"/>
+</launch>
